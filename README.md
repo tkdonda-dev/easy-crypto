@@ -1,4 +1,4 @@
-# Easy Crypto E
+# Easy Crypto Universal
 
 > Universal encryption library with zero native dependencies for Node.js, browsers, React, React Native, and Expo.
 
@@ -6,25 +6,25 @@
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
 
-## ✨ Features
+## Features
 
-- **🔒 Simple encryption/decryption** - One-line API with password-based encryption
-- **📦 Object encryption** - Encrypt any JavaScript object as JSON
-- **🔑 Password hashing** - Secure bcrypt-style hashing for authentication
-- **⚡ Key generation** - Derive reusable keys from passwords
-- **🎲 Random bytes** - Cryptographically secure random generation
-- **🌍 Universal** - Works on Node.js, Web, React, React Native, Expo
-- **📦 Zero dependencies** - Only 7KB TweetNaCl (pure JavaScript)
-- **🔓 Public domain** - Unlicense (most permissive license)
-- **🛡️ Battle-tested** - Built on TweetNaCl (used by Signal, WireGuard)
-- **🚀 Production-ready** - Complete error handling and validation
+- **Simple encryption/decryption** - One-line API with password-based encryption
+- **Object encryption** - Encrypt any JavaScript object as JSON
+- **Password hashing** - Secure bcrypt-style hashing for authentication
+- **Key generation** - Derive reusable keys from passwords
+- **Random bytes** - Cryptographically secure random generation
+- **Universal** - Works on Node.js, Web, React, React Native, Expo
+- **Zero dependencies** - Only 7KB TweetNaCl (pure JavaScript)
+- **Public domain** - Unlicense (most permissive license)
+- **Battle-tested** - Built on TweetNaCl (used by Signal, WireGuard)
+- **Production-ready** - Complete error handling and validation
 
-## 📦 Installation
+## Installation
 
 npm install @tkdonda/easy-crypto
 
 
-## 🚀 Quick Start
+## Quick Start
 
 const crypto = require('@tkdonda/easy-crypto');
 
@@ -37,7 +37,7 @@ const decrypted = crypto.decrypt(encrypted, 'password123');
 console.log(decrypted); // 'Secret message'
 
 
-## 📖 API Reference
+## API Reference
 
 ### Encryption & Decryption
 
@@ -207,7 +207,7 @@ console.log(crypto.getVersion());
 
 ---
 
-## 🌍 Platform Compatibility
+## Platform Compatibility
 
 | Platform           | Status | Minimum Version |
 |--------------------|--------|-----------------|
@@ -220,7 +220,7 @@ console.log(crypto.getVersion());
 
 ---
 
-## 💡 Real-World Examples
+## Real-World Examples
 
 ### User Authentication (Login System)
 
@@ -268,7 +268,7 @@ console.log(decrypted); // 'Confidential information'
 
 ---
 
-## 🔒 Security
+## Security
 
 - **Algorithm:** XSalsa20-Poly1305 (authenticated encryption)
 - **Key derivation:** PBKDF2 with 100,000 iterations (SHA-256)
@@ -280,7 +280,7 @@ console.log(decrypted); // 'Confidential information'
 
 ---
 
-## 📝 License
+## License
 
 **Unlicense** (Public Domain)
 
@@ -288,13 +288,13 @@ This is free and unencumbered software released into the public domain. See [UNL
 
 ---
 
-## 🙏 Credits
+## Credits
 
 Built on [TweetNaCl.js](https://tweetnacl.js.org/) - audited, fast, and trusted cryptography library.
 
 ---
 
-## 📚 More Examples
+## More Examples
 
 See [examples/node/basic.js](examples/node/basic.js) for comprehensive demonstrations of all features.
 

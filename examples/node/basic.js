@@ -12,7 +12,7 @@ console.log('=== Universal Easy Crypto - Node.js Complete Demo ===\n');
 // ============================================
 // 1. BASIC ENCRYPTION & DECRYPTION
 // ============================================
-console.log('1️⃣  Basic Encryption & Decryption');
+console.log('1.  Basic Encryption & Decryption');
 console.log('─'.repeat(50));
 
 const message = 'Secret message for secure transmission';
@@ -31,7 +31,7 @@ console.log(`✅ Match:   ${message === decrypted}\n`);
 // ============================================
 // 2. OBJECT ENCRYPTION (JSON)
 // ============================================
-console.log('2️⃣  Object Encryption (Real-world: User Data)');
+console.log('2.  Object Encryption (Real-world: User Data)');
 console.log('─'.repeat(50));
 
 const userData = {
@@ -62,7 +62,7 @@ console.log(`✅ Objects match: ${JSON.stringify(userData) === JSON.stringify(de
 // ============================================
 // 3. PASSWORD HASHING & VERIFICATION
 // ============================================
-console.log('3️⃣  Password Hashing (Real-world: User Authentication)');
+console.log('3.  Password Hashing (Real-world: User Authentication)');
 console.log('─'.repeat(50));
 
 const userPassword = 'user-secure-password-456';
@@ -86,7 +86,7 @@ console.log(`✅ Result: ${isInvalid ? 'Login successful' : 'Login failed (corre
 // ============================================
 // 4. GENERATE REUSABLE KEY
 // ============================================
-console.log('4️⃣  Generate Reusable Key (Real-world: Multiple Encryptions)');
+console.log('4.  Generate Reusable Key (Real-world: Multiple Encryptions)');
 console.log('─'.repeat(50));
 
 const masterPassword = 'master-key-password';
@@ -106,7 +106,7 @@ console.log(`✅ Same key reproduced: ${keysMatch}\n`);
 // ============================================
 // 5. SECURE RANDOM BYTES
 // ============================================
-console.log('5️⃣  Secure Random Bytes (Real-world: Tokens, Nonces, IDs)');
+console.log('5.  Secure Random Bytes (Real-world: Tokens, Nonces, IDs)');
 console.log('─'.repeat(50));
 
 const sessionToken = crypto.randomBytes(32);
@@ -121,7 +121,7 @@ console.log(`✅ All random bytes generated\n`);
 // ============================================
 // 6. OUTPUT FORMAT OPTIONS
 // ============================================
-console.log('6️⃣  Output Format Options (Base64 vs Raw)');
+console.log('6.  Output Format Options (Base64 vs Raw)');
 console.log('─'.repeat(50));
 
 const textToEncrypt = 'Format test data';
@@ -147,7 +147,7 @@ console.log(`✅ Raw decrypt: ${decryptedFromRaw === textToEncrypt}\n`);
 // ============================================
 // 7. ERROR HANDLING
 // ============================================
-console.log('7️⃣  Error Handling (Validation & Security)');
+console.log('7.  Error Handling (Validation & Security)');
 console.log('─'.repeat(50));
 
 // Test 1: Password too short
@@ -186,7 +186,7 @@ try {
 // ============================================
 // 8. VALIDATION HELPERS
 // ============================================
-console.log('8️⃣  Validation Helpers (Advanced Usage)');
+console.log('8.  Validation Helpers (Advanced Usage)');
 console.log('─'.repeat(50));
 
 // Validate password
@@ -203,7 +203,7 @@ console.log(`Text "Hello World": ${textValidation.valid ? '✅ Valid' : '❌ Inv
 // ============================================
 // 9. CONFIGURATION & METADATA
 // ============================================
-console.log('9️⃣  Configuration & Metadata');
+console.log('9.  Configuration & Metadata');
 console.log('─'.repeat(50));
 
 console.log(`Package version: ${crypto.version}`);
@@ -219,7 +219,7 @@ console.log(`  - Max password length: ${crypto.config.maxPasswordLength} charact
 // ============================================
 // 10. REAL-WORLD USE CASE: API KEY STORAGE
 // ============================================
-console.log('🔟 Real-World Use Case: Secure API Key Storage');
+console.log('10. Real-World Use Case: Secure API Key Storage');
 console.log('─'.repeat(50));
 
 // Simulate storing encrypted API keys
@@ -261,4 +261,4 @@ console.log('  ✓ Validation helpers');
 console.log('  ✓ Configuration inspection');
 console.log('  ✓ Real-world use cases\n');
 
-console.log('🎉Universal Easy Crypto is ready!\n');
+console.log('Universal Easy Crypto is ready!\n');
