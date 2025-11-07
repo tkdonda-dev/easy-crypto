@@ -1,0 +1,23 @@
+# Ignore source, tests, docs, examples (only dist/ or src/ goes to npm)
+docs/
+tests/
+examples/
+.github/
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+
+# For npm, you will PUBLISH (by default) files listed in package.json "files" or not ignored here.
+
+# Don't publish config files, CI, or dev stuff
+.gitignore
+.npmignore
+.eslintrc*
+.prettierrc*
+*.md
+!README.md
+.env*
+*.log
+*.tmp

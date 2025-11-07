@@ -1,0 +1,40 @@
+{
+  "name": "@tkdonda/easy-crypto",
+  "version": "1.0.0",
+  "description": "Universal encryption library with zero dependencies. Works on Node.js, Web browsers, React, React Native, and Expo. Simple password encryption, decryption, and hashing.",
+  "license": "Unlicense",
+  "main": "src/index.js",
+  "browser": "src/index.js",
+  "react-native": "src/index.js",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "require": "./src/index.js",
+      "browser": "./src/index.js",
+      "node": "./src/index.js"
+    }
+  },
+  "keywords": [
+    "encryption",
+    "decryption",
+    "crypto",
+    "security",
+    "password-hashing",
+    "cross-platform",
+    "node.js",
+    "react",
+    "react-native",
+    "expo",
+    "tweetnacl",
+    "zero-dependencies",
+    "easy-crypto",
+    "universal"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "tweetnacl": "^1.0.3",
+    "tweetnacl-util": "^0.15.1"
+  }
+}
