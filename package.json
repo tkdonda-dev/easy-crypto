@@ -7,11 +7,17 @@
   "browser": "src/index.js",
   "react-native": "src/index.js",
   "exports": {
-    ".": {
-      "import": "./src/index.js",
-      "require": "./src/index.js",
-      "browser": "./src/index.js",
-      "node": "./src/index.js"
+    "./utils/pbkdf2": {
+      "browser": "./src/utils/pbkdf2-browser.js",
+      "import": "./src/utils/pbkdf2-node.js",
+      "require": "./src/utils/pbkdf2-node.js",
+      "default": "./src/utils/pbkdf2-node.js"
+    },
+    "./utils/randomBytes": {
+      "browser": "./src/utils/random-browser.js",
+      "import": "./src/utils/random-node.js",
+      "require": "./src/utils/random-node.js",
+      "default": "./src/utils/random-node.js"
     }
   },
   "keywords": [

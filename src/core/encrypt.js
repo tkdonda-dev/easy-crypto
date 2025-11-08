@@ -4,8 +4,8 @@
 
 const nacl = require('tweetnacl');
 const util = require('tweetnacl-util');
-const pbkdf2 = require('../utils/pbkdf2-universal');
-const randomBytes = require('../utils/random-universal');
+const pbkdf2 = require('../utils/pbkdf2');
+const randomBytes = require('../utils/randomBytes');
 const {
   PBKDF2_ITERATIONS,
   PBKDF2_DIGEST,
