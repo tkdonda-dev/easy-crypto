@@ -21,12 +21,11 @@
 
 ## Installation
 
-``` npm install @tkdonda/easy-crypto ```
+```bash npm install @tkdonda/easy-crypto ```
 
 ## Quick Start
 
-<pre>
-const crypto = require('@tkdonda/easy-crypto');
+```const crypto = require('@tkdonda/easy-crypto');
 
 // Encrypt
 const encrypted = crypto.encrypt('Secret message', 'password123');
@@ -35,7 +34,7 @@ console.log(encrypted);
 // Decrypt
 const decrypted = crypto.decrypt(encrypted, 'password123');
 console.log(decrypted); // 'Secret message'
-</pre>
+```
 
 
 ## API Reference
