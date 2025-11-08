@@ -47,13 +47,13 @@ console.log(decrypted); // 'Secret message'
 #### `encrypt(text, password, options?)`
 
 Encrypts text with a password.
-
+```
 // Basic usage (returns Base64 string)
 const encrypted = crypto.encrypt('Hello World', 'myPassword');
 
 // With options
 const encryptedRaw = crypto.encrypt('Hello', 'pw', { output: 'raw' }); // Returns Uint8Array
-
+```
 
 **Parameters:**
 - `text` (string) - Text to encrypt
@@ -67,12 +67,12 @@ const encryptedRaw = crypto.encrypt('Hello', 'pw', { output: 'raw' }); // Return
 #### `decrypt(encryptedText, password, options?)`
 
 Decrypts encrypted text.
-
+```
 const decrypted = crypto.decrypt(encrypted, 'myPassword');
 
 // Decrypt raw Uint8Array
 const decryptedFromRaw = crypto.decrypt(rawData, 'pw', { input: 'raw' });
-
+```
 
 **Parameters:**
 - `encryptedText` (string | Uint8Array) - Encrypted data
@@ -90,10 +90,10 @@ const decryptedFromRaw = crypto.decrypt(rawData, 'pw', { input: 'raw' });
 #### `encryptObject(obj, password, options?)`
 
 Encrypts any JavaScript object (serializes to JSON).
-
+```
 const user = { id: 123, name: 'Alice', email: 'alice@example.com' };
 const encrypted = crypto.encryptObject(user, 'password');
-
+```
 
 **Parameters:**
 - `obj` (object) - JavaScript object to encrypt
@@ -107,10 +107,10 @@ const encrypted = crypto.encryptObject(user, 'password');
 #### `decryptObject(encrypted, password, options?)`
 
 Decrypts and parses a JavaScript object.
-
+```
 const decrypted = crypto.decryptObject(encrypted, 'password');
 console.log(decrypted); // { id: 123, name: 'Alice', ... }
-
+```
 
 **Parameters:**
 - `encrypted` (string | Uint8Array) - Encrypted data
@@ -126,10 +126,10 @@ console.log(decrypted); // { id: 123, name: 'Alice', ... }
 #### `hash(password)`
 
 Hashes a password for secure storage (e.g., in database).
-
+```
 const hashedPassword = crypto.hash('userPassword123');
 // Store hashedPassword in database
-
+```
 
 **Parameters:**
 - `password` (string) - Password to hash (min 8 characters)
@@ -141,7 +141,7 @@ const hashedPassword = crypto.hash('userPassword123');
 #### `verifyHash(password, storedHash)`
 
 Verifies a password against its hash.
-
+```
 // During login
 const isValid = crypto.verifyHash('userPassword123', storedHash);
 if (isValid) {
@@ -149,7 +149,7 @@ if (isValid) {
 } else {
 // Invalid password
 }
-
+```
 
 **Parameters:**
 - `password` (string) - Password to verify
@@ -164,13 +164,13 @@ if (isValid) {
 #### `generateKey(password, salt?)`
 
 Derives a reusable 32-byte key from a password.
-
+```
 const { key, salt } = crypto.generateKey('masterPassword');
 // Use key for multiple encryptions without re-hashing
 
 // Re-generate same key later
 const { key: sameKey } = crypto.generateKey('masterPassword', salt);
-
+```
 
 **Parameters:**
 - `password` (string) - Password to derive key from
@@ -185,11 +185,11 @@ const { key: sameKey } = crypto.generateKey('masterPassword', salt);
 #### `randomBytes(length)`
 
 Generates cryptographically secure random bytes.
-
+```
 const nonce = crypto.randomBytes(24);
 const token = crypto.randomBytes(32);
 const salt = crypto.randomBytes(16);
-
+```
 
 **Parameters:**
 - `length` (number) - Number of bytes to generate (1-65536)
@@ -203,10 +203,10 @@ const salt = crypto.randomBytes(16);
 #### `getVersion()`
 
 Returns version information.
-
+```
 console.log(crypto.getVersion());
 // "easy-crypto v1.0.0 (tweetnacl v1.0.3)"
-
+```
 
 ---
 
@@ -226,7 +226,7 @@ console.log(crypto.getVersion());
 ## Real-World Examples
 
 ### User Authentication (Login System)
-
+```
 // Registration - hash password before storing
 const userPassword = 'userSecurePassword';
 const hashedPassword = crypto.hash(userPassword);
@@ -238,10 +238,10 @@ const isValid = crypto.verifyHash(loginPassword, hashedPassword);
 if (isValid) {
 // Login successful
 }
-
+```
 
 ### Secure API Key Storage
-
+```
 // Encrypt sensitive API keys before database storage
 const apiKeys = {
 stripe: 'sk_live_abc123',
@@ -255,10 +255,10 @@ const encrypted = crypto.encryptObject(apiKeys, 'master-encryption-key');
 // Later, decrypt when needed
 const decrypted = crypto.decryptObject(encrypted, 'master-encryption-key');
 console.log(decrypted.stripe); // 'sk_live_abc123'
-
+```
 
 ### End-to-End Message Encryption
-
+```
 // Sender
 const message = 'Confidential information';
 const encrypted = crypto.encrypt(message, 'shared-secret');
@@ -267,7 +267,7 @@ const encrypted = crypto.encrypt(message, 'shared-secret');
 // Receiver
 const decrypted = crypto.decrypt(encrypted, 'shared-secret');
 console.log(decrypted); // 'Confidential information'
-
+```
 
 ---
 
