@@ -21,8 +21,7 @@
 
 ## Installation
 
-npm install @tkdonda/easy-crypto
-
+```npm install @tkdonda/easy-crypto
 
 ## Quick Start
 
