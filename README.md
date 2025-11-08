@@ -26,7 +26,7 @@ npm install @tkdonda/easy-crypto
 
 ## Quick Start
 
-<pre> ```js
+<pre>
 const crypto = require('@tkdonda/easy-crypto');
 
 // Encrypt
@@ -36,7 +36,7 @@ console.log(encrypted);
 // Decrypt
 const decrypted = crypto.decrypt(encrypted, 'password123');
 console.log(decrypted); // 'Secret message'
-``` </pre>
+</pre>
 
 
 ## API Reference
