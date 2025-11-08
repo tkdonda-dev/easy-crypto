@@ -1,7 +1,3 @@
-/**
- * Constants and configuration
- */
-
 const PBKDF2_ITERATIONS = 100000;
 const PBKDF2_DIGEST = 'sha256';
 const SALT_LENGTH = 16;
@@ -9,14 +5,9 @@ const NONCE_LENGTH = 24;
 const KEY_LENGTH = 32;
 const MIN_PASSWORD_LENGTH = 8;
 const MAX_PASSWORD_LENGTH = 128;
-const MIN_TEXT_LENGTH = 1;
-const MAX_TEXT_LENGTH = 1048576; // 1MB
-const HASH_LENGTH = 64;
-const ENCODING = 'base64';
-const TEXT_ENCODING = 'utf8';
 const PACKAGE_VERSION = '1.0.0';
 const DEP_TWEETNACL_VERSION = '1.0.3';
-const MAGIC_BYTES = 'EC01';
+const ENCODING = 'base64';
 
 module.exports = {
   PBKDF2_ITERATIONS,
@@ -26,12 +17,7 @@ module.exports = {
   KEY_LENGTH,
   MIN_PASSWORD_LENGTH,
   MAX_PASSWORD_LENGTH,
-  MIN_TEXT_LENGTH,
-  MAX_TEXT_LENGTH,
-  HASH_LENGTH,
-  ENCODING,
-  TEXT_ENCODING,
   PACKAGE_VERSION,
   DEP_TWEETNACL_VERSION,
-  MAGIC_BYTES,
+  ENCODING,
 };

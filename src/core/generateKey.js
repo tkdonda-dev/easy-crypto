@@ -2,8 +2,8 @@
  * Generate reusable encryption key from password
  */
 
-const crypto = require('crypto');
-const nacl = require('tweetnacl');
+const pbkdf2 = require('../utils/pbkdf2-universal');
+const randomBytes = require('../utils/random-universal');
 const {
   PBKDF2_ITERATIONS,
   PBKDF2_DIGEST,
@@ -12,27 +12,15 @@ const {
 } = require('../utils/constants');
 const { validatePassword } = require('../utils/validation');
 
-function generateKey(password, salt) {
+async function generateKey(password, salt) {
   const validation = validatePassword(password);
   if (!validation.valid) throw new Error(validation.error);
-
   if (!salt) {
-    salt = nacl.randomBytes(SALT_LENGTH);
+    salt = randomBytes(SALT_LENGTH);
   } else {
     salt = new Uint8Array(salt);
   }
-
-  const keyBuffer = crypto.pbkdf2Sync(
-    password,
-    Buffer.from(salt),
-    PBKDF2_ITERATIONS,
-    KEY_LENGTH,
-    PBKDF2_DIGEST
-  );
-
-  const key = new Uint8Array(keyBuffer);
-
+  const key = await pbkdf2(password, salt, PBKDF2_ITERATIONS, KEY_LENGTH, PBKDF2_DIGEST);
   return { key, salt };
 }
-
 module.exports = generateKey;
