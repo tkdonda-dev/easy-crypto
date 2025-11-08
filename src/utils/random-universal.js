@@ -1,21 +1,25 @@
-// Universal secure random bytes
 const { isNode, isBrowser } = require('./platform');
 
-let nodeCrypto;
-if (isNode) {
-  nodeCrypto = require('crypto');
+function getNodeCrypto() {
+  // eslint-disable-next-line
+  return eval('require("crypto")');
 }
 
+/**
+ * Universal secure random bytes:
+ * - Node.js: uses crypto.randomBytes
+ * - Browser: uses window.crypto.getRandomValues
+ */
 function randomBytes(length) {
   if (isNode) {
+    const nodeCrypto = getNodeCrypto();
     return new Uint8Array(nodeCrypto.randomBytes(length));
   } else if (isBrowser) {
     const arr = new Uint8Array(length);
     window.crypto.getRandomValues(arr);
     return arr;
-  } else {
-    throw new Error('randomBytes: Unknown runtime platform. Not supported.');
   }
+  throw new Error('random-universal: Unsupported platform');
 }
 
 module.exports = randomBytes;

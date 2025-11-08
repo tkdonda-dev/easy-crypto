@@ -1,34 +1,27 @@
-// Universal PBKDF2 for async key derivation on all platforms
 const { isNode, isBrowser } = require('./platform');
 
-// For browser API param normalization
-function webHashName(digest) {
-  // 'sha256' or 'SHA-256' => 'SHA-256'
-  return digest.toUpperCase().replace('-', '');
-}
-
-let nodeCrypto;
-if (isNode) {
-  nodeCrypto = require('crypto');
+// Use eval to hide from bundlers (Webpack, Vite, CRA)
+function getNodeCrypto() {
+  // eslint-disable-next-line
+  return eval('require("crypto")');
 }
 
 /**
- * Derive key using PBKDF2 (Node: Buffer; Browser: ArrayBuffer)
- * Always returns a Promise<Uint8Array>
+ * Universal async PBKDF2-SHA256.
+ * - Node.js: uses crypto.pbkdf2Sync (returns Uint8Array)
+ * - Browser: uses window.crypto.subtle (async, returns Uint8Array)
  */
 async function pbkdf2(password, salt, iterations, keylen, digest) {
   if (isNode) {
-    // Node.js: Sync call (wrapped in promise for API)
+    const nodeCrypto = getNodeCrypto();
     const buf = nodeCrypto.pbkdf2Sync(password, Buffer.from(salt), iterations, keylen, digest);
     return new Uint8Array(buf);
   } else if (isBrowser) {
-    // Browser: WebCrypto API
+    const encoder = new TextEncoder();
     const keyMaterial = await window.crypto.subtle.importKey(
       'raw',
-      typeof password === 'string'
-        ? new TextEncoder().encode(password)
-        : password,
-      { name: 'PBKDF2' },
+      typeof password === 'string' ? encoder.encode(password) : password,
+      'PBKDF2',
       false,
       ['deriveBits']
     );
@@ -37,15 +30,14 @@ async function pbkdf2(password, salt, iterations, keylen, digest) {
         name: 'PBKDF2',
         salt: new Uint8Array(salt),
         iterations,
-        hash: webHashName(digest),
+        hash: digest.toUpperCase().replace('-', ''), // 'sha256' → 'SHA256'
       },
       keyMaterial,
       keylen * 8
     );
     return new Uint8Array(derived);
-  } else {
-    throw new Error('pbkdf2: Unknown runtime platform. Not supported.');
   }
+  throw new Error('pbkdf2-universal: Unsupported platform');
 }
 
 module.exports = pbkdf2;

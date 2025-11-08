@@ -1,15 +1,15 @@
-// Detect current runtime platform
+// Detect runtime platform
 const isNode =
   typeof process !== 'undefined' &&
-  !!process.versions &&
-  !!process.versions.node;
+  process.versions &&
+  process.versions.node &&
+  typeof window === 'undefined';
 
 const isBrowser =
   typeof window !== 'undefined' &&
-  typeof window.crypto !== 'undefined' &&
-  typeof window.crypto.subtle !== 'undefined';
+  !!window.crypto &&
+  !!window.crypto.subtle;
 
-// Best-effort React Native detection
 const isReactNative =
   typeof navigator !== 'undefined' &&
   navigator.product === 'ReactNative';
